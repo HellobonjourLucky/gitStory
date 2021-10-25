@@ -1,0 +1,6 @@
+#gitIgnore
+token.txt
+blog/node_modules/
+blog/.git/
+fruitsProject/node_modules/
+todoList_server/node_modules/
