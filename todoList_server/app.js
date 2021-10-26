@@ -19,6 +19,18 @@ const itemSchema = {
   name: String
 }
 
+const item1 = new Item({
+  name: "Welcome to your todoList"
+});
+const item2 = new Item({
+  name: "Hit the + button to add a new item"
+});
+const item3 = new Item({
+  name: "<--Hit this to delete the item"
+});
+
+const defaultItems = [item1, item2, item3];
+
 const ItemModel = mongoose.model("Item", itemSchema);
 
 app.get('/', function(req, res){
