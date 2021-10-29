@@ -38,18 +38,19 @@ const defaultItems = [item1, item2, item3];
 //   }
 // })
 
-ItemModel.find({}, function(err, docs){
-  if(err){
-    console.log(err);
-  }else{
-    console.log(docs);
-  }
-})
+
 
 
 app.get('/', function(req, res){
-  // day = date.getDate();
-  res.render('list', {listTitle : "Today", newListItems : items});
+  ItemModel.find({}, function(err, items){
+    if(err){
+      console.log(err);
+    }else{
+      console.log(items);
+      res.render('list', {listTitle : "Today", newListItems : items});
+    }
+  })
+
 })
 
 app.get('/work', function(req, res){
