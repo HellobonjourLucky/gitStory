@@ -1,1 +1,24 @@
-Chapter 0222
+**git**
+$git status
+$git add .
+$git commit -m "..."
+$git push -u origin main		(-u : link)
+$git push -f origin main 		(-f: force)
+
+$git remote -v 			(show remote repo address)
+$git remote 			(show the name of remote repo)
+$git branch 			(show which branch is used)
+
+
+
+
+**mongo shell**
+$show dis
+$use (DB_name)
+$show collections
+
+$db.(collection_name).find()
+$db.(collection_name).insertOne()
+$db.(collection_name).insertMany(Array)
+
+$db.dropDatabase()

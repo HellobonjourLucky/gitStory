@@ -1,1 +1,26 @@
-Chapter 01 !!!
+**Home Brew Community Service ON**
+
+$brew service list
+$brew service run mongoldb-community
+
+
+
+
+**Run Mongo DB server**
+$mongod 
+Or
+$mongod --dbpath /System/Volumes/Data/data/db
+
+
+
+
+**Close Mongo DB server**
+$sudo pkill -f mongod (force quit)
+Or
+Just close the terminal
+
+
+
+
+**Run Mongo Shell**
+$mongo
