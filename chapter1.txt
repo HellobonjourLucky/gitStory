@@ -2,6 +2,8 @@
 
 $brew service list
 $brew service run mongoldb-community
+Or
+$brew services start mongodb-community
 
 
 
