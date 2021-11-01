@@ -30,23 +30,23 @@ const item3 = new ItemModel({
 
 const defaultItems = [item1, item2, item3];
 
-// ItemModel.insertMany(defaultItems, function(err){
-//   if(err){
-//     console.log(err);
-//   }else{
-//     console.log("Successfully saved default items to DB");
-//   }
-// })
+
 
 
 
 
 app.get('/', function(req, res){
   ItemModel.find({}, function(err, items){
-    if(err){
-      console.log(err);
+    if(items.length === 0){
+      ItemModel.insertMany(defaultItems, function(err){
+        if(err){
+          console.log(err);
+        }else{
+          console.log("Successfully saved default items to DB");
+        }
+      });
+      res.redirect('/');
     }else{
-      console.log(items);
       res.render('list', {listTitle : "Today", newListItems : items});
     }
   })
@@ -64,13 +64,32 @@ app.get('/about', function(req, res){
 
 
 app.post('/', function(req, res){
-  if(req.body.button == "Work List"){
-    workItems.push(req.body.newItem);
-    res.redirect('/work');
-  }else{
-    items.push(req.body.newItem);
-    res.redirect('/');
-  }
+  const itemName = req.body.newItem;
+  // if(req.body.button == "Work List"){
+  //   workItems.push(req.body.newItem);
+  //   res.redirect('/work');
+  // }else{
+  //   items.push(req.body.newItem);
+  //   res.redirect('/');
+  // }
+
+  const item = new ItemModel({
+    name: itemName
+  })
+
+  item.save();
+  res.redirect('/');
+})
+
+app.post('/delete', function(req, res){
+  // console.log(req.body.checkbox);
+  const checkedItemId = req.body.checkbox;
+  ItemModel.findByIdAndRemove(checkedItemId, function(err){
+    if(!err){
+      console.log("Successfully deleted item");
+      res.redirect('/');
+    }
+  })
 })
 
 
