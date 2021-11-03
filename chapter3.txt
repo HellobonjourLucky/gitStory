@@ -1,1 +1,4 @@
-Chapter 0333333
+Arduino
+- Pins for PWM are numbers with '~' sign. 
+- contrain() function
+- map() function

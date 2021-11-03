@@ -1,5 +1,4 @@
 **Home Brew Community Service ON**
-
 $brew service list
 $brew service run mongoldb-community
 Or
