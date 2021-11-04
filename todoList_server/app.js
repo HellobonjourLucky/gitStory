@@ -16,7 +16,13 @@ const itemSchema = {
    name: String
 }
 
+const listSchema = {
+  name: String,
+  items: [itemSchema]
+}
+
 const ItemModel = mongoose.model('Item', itemSchema);
+const ListModel = mongoose.model('List', listSchema);
 
 const item1 = new ItemModel({
   name: "Welcome to your todoList"
@@ -53,25 +59,35 @@ app.get('/', function(req, res){
 
 })
 
-app.get('/work', function(req, res){
-  res.render('list', {listTitle : "Work List", newListItems : workItems});
-})
+// app.get('/work', function(req, res){
+//   res.render('list', {listTitle : "Work List", newListItems : workItems});
+// })
 
-app.get('/about', function(req, res){
-  res.render('about');
-})
+app.get('/:customListName', function(req, res){
+  const customListName = req.params.customListName;
 
+  ListModel.findOne({name: customListName}, function(err, foundList){
+    if(!err){
+      if(foundList){
+        // console.log("exist");
+        res.render('list', {listTitle : customListName, newListItems : foundList.items})
+      }else{
+        // console.log("not exist");
+        const list = new ListModel({
+          name: customListName,
+          items: defaultItems
+        });
+        list.save();
+        res.redirect('/' + customListName);
+      }
+    }
+  })
+})
 
 
 app.post('/', function(req, res){
   const itemName = req.body.newItem;
-  // if(req.body.button == "Work List"){
-  //   workItems.push(req.body.newItem);
-  //   res.redirect('/work');
-  // }else{
-  //   items.push(req.body.newItem);
-  //   res.redirect('/');
-  // }
+  const listName = req.body.listBtn;
 
   const item = new ItemModel({
     name: itemName
