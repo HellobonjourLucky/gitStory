@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static('public'));
 
 
-mongoose.connect('mongodb://localhost:27017/todolistDB');
+mongoose.connect('mongodb+srv://admin-lucky:loveuthanku@cluster0.jedte.mongodb.net/todolistDB');
 
 const itemSchema = {
    name: String
@@ -133,6 +133,6 @@ app.post('/delete', function(req, res){
 })
 
 
-app.listen(2000, function(){
+app.listen(3000, function(){
   console.log(200);
 })
