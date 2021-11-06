@@ -1,4 +1,13 @@
-**git**
+*git init**
+$git init
+$git commit -m "first commit"
+$git branch (-M) main
+$git remote add origin https://github.com/HellobonjourLucky/______.git
+$git push -u origin main
+
+
+
+**git add & push**
 $git status
 $git add .
 $git commit -m "..."
