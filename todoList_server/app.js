@@ -106,6 +106,7 @@ app.post('/', function(req, res){
   }
 })
 
+
 app.post('/delete', function(req, res){
   // console.log(req.body.checkbox);
   const checkedItemId = req.body.checkbox;
@@ -129,8 +130,25 @@ app.post('/delete', function(req, res){
       }
     )
   }
-
 })
+
+
+//before using items.id we can use filter to delete todo
+// app.post('/delete', function(req,res){
+//   const removeItem = req.body.checkbox;
+//   const listName = req.body.listName;
+//   if(listName === "Today"){
+//     items = items.filter(item => {
+//       return item !== removeItem;
+//     })
+//     res.redirect('/');
+//   }else{
+//     workItems = workItems.filter(item => {
+//       return item !== removeItem;
+//     })
+//     res.redirect('/' + 'work');
+//   }
+// })
 
 
 app.listen(3000, function(){
