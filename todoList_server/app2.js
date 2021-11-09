@@ -13,49 +13,59 @@ mongoose.connect('mongodb://localhost:27017/fruitsDB');
 let items = ["book", "cleaning"];
 let workItems = [];
 
-const insertDocuments = function(db, callback) {
-  // Get the documents collection
-  const collection = db.collection('fruits');
-  // Insert some documents
-  collection.insertMany([
-    {
-      name: "Apple",
-      score: 8,
-      review: "Great fruit"
-    },
-    {
-      name: "Orange",
-      score: 6,
-      review: "Kinda sour"
-    },
-    {
-      name: "Banana",
-      score: 9,
-      review: "Good Stuff"
-    }
-  ], function(err, result) {
-    assert.equal(err, null);
-    assert.equal(3, result.result.n);
-    assert.equal(3, result.ops.length);
-    console.log("Inserted 3 documents into the collection");
-    callback(result);
-  });
-}
+const fruitsSchema = new mongoose.Schema({
+  name: String,
+  rating: Number,
+  review: String
+});
 
-const findDocuments = function(db, callback) {
-  // Get the documents collection
-  const collection = db.collection('fruits');
-  // Find some documents
-  collection.find({}).toArray(function(err, fruits) {
-    assert.equal(err, null);
-    console.log("Found the following records");
-    console.log(fruits)
-    callback(fruits);
-  });
-}
+const personSchema = new mongoose.Schema({
+  name: String,
+  age: Number
+})
 
+const FruitModel = mongoose.model('Fruit', fruitsSchema);
+const PersonModel = mongoose.model('Person', personSchema);
 
+const apple = new FruitModel({
+  name: 'Apple',
+  rating: 5,
+  review: 'nice'
+});
 
+const kiwi = new  FruitModel({
+  name: "Kiwi",
+  rating: 10,
+  review: "The best fruit"
+});
+
+const orange = new  FruitModel({
+  name: "Orange",
+  rating: 4,
+  review: "Too sour for me"
+});
+
+const banana = new  FruitModel({
+  name: "Banana",
+  rating: 3,
+  review: "Weird texture"
+});
+
+const john = new PersonModel({
+  name: 'John',
+  age: 24
+})
+
+// apple.save();
+// john.save();
+
+// FruitModel.insertMany([kiwi, orange, banana], function(err){
+//   if(err){
+//     console.log(err);
+//   }else{
+//     console.log('successfully saved all the fruits to fruitsDB');
+//   }
+// })
 
 
 app.get('/', function(req, res){
@@ -101,6 +111,6 @@ app.post('/delete', function(req,res){
   }
 })
 
-app.listen(3000,function(){
+app.listen(2000,function(){
   console.log("app2: 200");
 });
