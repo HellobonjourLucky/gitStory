@@ -14,14 +14,22 @@ let items = ["book", "cleaning"];
 let workItems = [];
 
 const fruitsSchema = new mongoose.Schema({
-  name: String,
-  rating: Number,
+  name: {
+    type: String,
+    reqired: [1, "Please check your data entry, no name specified!"]
+  },
+  rating: {
+      type: Number,
+      min: 1,
+      max: 10
+  },
   review: String
 });
 
 const personSchema = new mongoose.Schema({
   name: String,
-  age: Number
+  age: Number,
+  favoriteFruit: fruitsSchema
 })
 
 const FruitModel = mongoose.model('Fruit', fruitsSchema);
@@ -56,10 +64,17 @@ const john = new PersonModel({
   age: 24
 })
 
+const ammy = new PersonModel({
+  name: "Ammy",
+  age: 31,
+  favoriteFruit: apple
+})
+
 // apple.save();
 // john.save();
+// ammy.save();
 
-// FruitModel.insertMany([kiwi, orange, banana], function(err){
+// FruitModel.insertMany([kiwi, banana, apple], function(err){
 //   if(err){
 //     console.log(err);
 //   }else{
@@ -67,6 +82,45 @@ const john = new PersonModel({
 //   }
 // })
 
+// FruitModel.updateOne({_id:"618abc0ff17c866247375dd7"}, {name: "Peach"}, function(err){
+//   if(err){
+//     console.log(err);
+//   }else{
+//     console.log("Successfully updated the document");
+//   }
+// });
+//
+// PersonModel.updateOne({name:"John"}, {favoriteFruit: banana}, function(err){
+//   if(err){
+//     console.log(err);
+//   }else{
+//     console.log("Successfully updated the document");
+//   }
+// })
+//
+// FruitModel.deleteOne({_id: "618abc0ff17c866247375dd8"}, function(err){
+//   if(err){
+//     console.log(err);
+//   }else{
+//     console.log("Successfully deleted the document");
+//   }
+// })
+
+// PersonModel.deleteMany({name: "Ammy"},function(err){
+//   if(err){
+//     console.log(err);
+//   }else{
+//     console.log("Successfully deleted the document");
+//   }
+// });
+
+PersonModel.find(function(err, data){
+  if(err){
+    console.log(err);
+  }else{
+    console.log(data);
+  }
+});
 
 app.get('/', function(req, res){
   res.render('list2', {listTitle : "Today", items: items});
