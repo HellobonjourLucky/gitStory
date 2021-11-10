@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+const _ = require('lodash');
 
 const app = express();
 app.set('view engine', 'ejs');
@@ -55,7 +56,7 @@ app.get('/', function(req, res){
 
 
 app.get('/:customListName', function(req,res){
-  const customListName = req.params.customListName;
+  const customListName = _.capitalize(req.params.customListName);
   ListModel.findOne({name: customListName}, function(err, data){
     if(!err){
       if(!data){
@@ -79,23 +80,51 @@ app.get('/:customListName', function(req,res){
 
 app.post('/', function(req,res){
   const newItem = req.body.newItem;
+  const listName = req.body.listName;
+
   const item = new TodoModel({
     name: newItem
   });
-  item.save();
-  res.redirect('/');
+
+  if(listName === "Today"){
+    item.save();
+    res.redirect('/');
+  }else{
+    ListModel.findOne({name: listName}, function(err, obj){
+      obj.items.push(item);
+      obj.save();
+      res.redirect('/' + listName);
+    })
+  }
+
+
 });
 
 app.post('/delete', function(req,res){
-  const removeItem = req.body.checkbox;
-  TodoModel.deleteOne({_id: removeItem}, function(err){
-    if(err){
-      console.log(err);
-    }else{
-      console.log("Successfully deleted the item from DB");
-    }
-  res.redirect('/');
-  })
+  const removeItemId = req.body.checkbox;
+  const listName = req.body.listName;
+
+  if(listName === "Today"){
+    TodoModel.deleteOne({_id: removeItemId}, function(err){
+      if(err){
+        console.log(err);
+      }else{
+        console.log("Successfully deleted the item from DB");
+      }
+    res.redirect('/');
+    })
+  }else{
+    ListModel.findOneAndUpdate(
+      {name: listName},
+      {$pull: {items: {_id:removeItemId}}},
+      function(err, obj){
+        if(!err){
+          res.redirect('/' + listName);
+        }
+      }
+    )
+  }
+
 })
 
 app.listen(2000,function(){
