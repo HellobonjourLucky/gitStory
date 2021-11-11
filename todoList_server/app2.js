@@ -9,7 +9,7 @@ app.use(bodyParser.urlencoded({extended:true}));
 app.use(express.static('public'));
 
 
-mongoose.connect('mongodb://localhost:27017/tododb');
+mongoose.connect('mongodb+srv://admin-lucky:loveuthanku@cluster0-jedte.mongodb.net/todolistDB');
 
 const todoSchema = new mongoose.Schema({
   name: String
@@ -60,8 +60,6 @@ app.get('/:customListName', function(req,res){
   ListModel.findOne({name: customListName}, function(err, data){
     if(!err){
       if(!data){
-        //make a new List!
-        console.log("Not exist this List! Make new One!");
         const newList = new ListModel({
           name: customListName,
           items: defaultItems
@@ -69,8 +67,6 @@ app.get('/:customListName', function(req,res){
         newList.save();
         res.redirect('/' + customListName);
       }else{
-        //showing existing List!
-        // console.log(data);
         res.render('list2', {listTitle: data.name , items: data.items});
       }
     }
