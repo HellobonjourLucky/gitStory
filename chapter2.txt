@@ -63,6 +63,11 @@ $git branch
 $git push origin newBranch
 
 **git branch(Local Computer)**
+$git branch -a 				(find all branches in Local & Remote repos)
+$git fetch					(downloads new data from a remote repository)
+$git checkout -b newBranch origin/newBranch	
+(origin/newBranch를 newBranch란 이름으로 local에 만들고, 그곳으로 switch하겠다)
+
 
 
 
