@@ -34,6 +34,12 @@ $git remote 			(show the name of remote repo)
 $git branch 			(show which branch is used)
 
 
+**git fetch**
+$git fetch 				
+$git status 			(check the chages)
+$git pull origin main
+
+
 
 **git remove**
 $cd <workingDirectory>
