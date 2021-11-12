@@ -40,6 +40,18 @@ $git status 			(check the chages)
 $git pull origin main
 
 
+**git branch**
+$git branch newBranch	 (make a new branch)
+$git checkout newBranch  (switch to newBranch from main)
+or
+$git checkout -b newBranch (make a new branch and switch to the new branch simultaneously)
+
+$git add .
+$git commit -m "msg"
+$git branch
+$git push origin newBranch
+
+
 
 **git remove**
 $cd <workingDirectory>
