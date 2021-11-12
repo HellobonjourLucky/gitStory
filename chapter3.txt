@@ -1,3 +1,9 @@
+**Terminal command**
+$echo message > a.txt 			(write message into a.txt file)
+$echo message >> a.txt			(add messages into a.txt file)
+
+
+
 Arduino
 - Pins for PWM are numbers with '~' sign. 
 - contrain() function

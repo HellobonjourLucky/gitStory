@@ -1,3 +1,17 @@
+**git config**
+$git config --global -e		(can edit on the terminal)
+$git config --global core.editor "atom --wait"
+				(can edit on the Atom and terminal waits until Atom is closed)
+$git config --global core.autocrlf input
+				(/n과 같은 줄바꿈을 할때, 다른 윈도우 사용자와 충돌이 일어나지 않도록 하는 기능)
+$git config --h 			(show all the shortcuts)
+
+
+**git shortcut**
+$git config --global alias.st status
+				(using <$git st> as a shortcut for <$git status>)
+
+
 *git init**
 $git init
 $git commit -m "first commit"
@@ -9,7 +23,8 @@ $git push -u origin main
 
 **git add & push**
 $git status
-$git add .
+$git add .			(to stage)
+$git rm --cached <file>		(to unstage)
 $git commit -m "..."
 $git push -u origin main		(-u : link)
 $git push -f origin main 		(-f: force)
@@ -17,6 +32,14 @@ $git push -f origin main 		(-f: force)
 $git remote -v 			(show remote repo address)
 $git remote 			(show the name of remote repo)
 $git branch 			(show which branch is used)
+
+
+
+**git remove**
+$cd <workingDirectory>
+$rm -rf .git			
+
+
 
 
 
