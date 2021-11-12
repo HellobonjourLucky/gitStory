@@ -34,13 +34,24 @@ $git remote 			(show the name of remote repo)
 $git branch 			(show which branch is used)
 
 
-**git fetch**
+
+
+
+**git clone(Other Computer)**
+cd <working Driectory>
+$git clone <repository address>
+
+
+**git fetch(Local Computer)**
 $git fetch 				
-$git status 			(check the chages)
+(only downloads new data from a remote repository) 
+(but it doesn't integrate any of this new data into your working files.)
+$git status 			
 $git pull origin main
 
 
-**git branch**
+
+**git branch(Other Computer)**
 $git branch newBranch	 (make a new branch)
 $git checkout newBranch  (switch to newBranch from main)
 or
@@ -50,6 +61,10 @@ $git add .
 $git commit -m "msg"
 $git branch
 $git push origin newBranch
+
+**git branch(Local Computer)**
+
+
 
 
 
