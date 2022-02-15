@@ -1,0 +1,146 @@
+**git 최초 init**
+(https://www.lainyzine.com/ko/article/how-to-set-git-repository-username-and-email/)
+* 로컬에서 기본값으로 사용할 Git 사용자 이름과 이메일 설정
+$ git config --global user.name "Your Name"
+$ git config --global user.email you@example.com
+
+
+
+* 저장소 별로 Git 사용자와 이메일 정보 설정하기
+$ git config user.name "LainyZine"
+$ git config user.email lainyzine.com@gmail.com
+
+
+
+* 현재 저장소의 user, email 설정값을 확인하는 방법
+$ git config user.name
+$ git config user.email
+또는
+$ git config --list
+
+
+* Git 사용자 이름과 이메일 정보 삭제하기
+# 전역 설정을 삭제
+$ git config --global --unset user.name
+$ git config --global --unset user.email
+
+# 개별 저장소의 설정을 삭제
+$ git config --unset user.name
+$ git config --unset user.email
+
+
+
+--------------------------------------------------------------------------------------------
+
+
+
+**git config**
+$git config --global -e		(can edit on the terminal)
+$git config --global core.editor "atom --wait"
+				(can edit on the Atom and terminal waits until Atom is closed)
+$git config --global core.autocrlf input
+				(/n과 같은 줄바꿈을 할때, 다른 윈도우 사용자와 충돌이 일어나지 않도록 하는 기능)
+$git config --h 			(show all the shortcuts)
+
+
+**git shortcut**
+$git config --global alias.st status
+				(using <$git st> as a shortcut for <$git status>)
+
+**git config**
+git config --list
+git config user.name
+git config user.email
+git config --global user.email
+git config --local user.email
+
+
+**git init**
+$git init
+$git commit -m "first commit"
+$git branch (-M) main
+$git remote add origin https://github.com/HellobonjourLucky/______.git
+$git push -u origin main
+
+
+**git remote change**
+$git remote set-url origin https://github.com/HellobonjourLucky/______.git
+$git push -u origin main
+
+
+**git remote remove**
+$git remote rm origin
+$git remote add origin https://github.com/HellobonjourLucky/______.git
+
+
+
+**git add & push**
+$git status
+$git add .			(to stage)
+$git rm --cached <file>		(to unstage)
+$git commit -m "..."
+$git push -u origin main		(-u : link)
+$git push -f origin main 		(-f: force)
+
+$git remote -v 			(show remote repo address)
+$git remote 			(show the name of remote repo)
+$git branch 			(show which branch is used)
+
+
+
+**git clone(Other Computer)**
+cd <working Driectory>
+$git clone <repository address>
+
+
+**git fetch(Local Computer)**
+$git fetch 			(only downloads new data from a remote repository) 
+				(but it doesn't integrate any of this new data into your working files.)
+$git status 			
+$git pull origin main
+
+
+**git pull**
+git pull --rebase
+
+
+
+**git branch(Other Computer)**
+$git branch newBranch	 	(make a new branch)
+$git checkout newBranch  		(switch to newBranch from main)
+or
+$git checkout -b newBranch 	(make a new branch and switch to the new branch simultaneously)
+
+$git add .
+$git commit -m "msg"
+$git branch
+$git push origin newBranch
+
+
+
+**git branch(Local Computer)**
+$git branch -a 			(find all branches in Local & Remote repos)
+$git fetch			(downloads new data from a remote repository)
+$git checkout -b newBranch origin/newBranch	
+				(origin/newBranch를 newBranch란 이름으로 local에 만들고)
+				(그곳으로 switch하겠다)
+
+
+**git merge**
+$git checkout main		(come back to master or main repo)
+$git merge newBranch
+
+
+
+**git remove**
+$cd <workingDirectory>
+$rm -rf .git			
+
+
+
+
+
+
+
+
+

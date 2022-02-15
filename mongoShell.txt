@@ -1,0 +1,37 @@
+**Home Brew Community Service ON**
+$brew service list
+$brew service run mongoldb-community
+Or
+$brew services start mongodb-community
+
+
+**Run Mongo DB server**
+$mongod 
+Or
+$mongod --dbpath /System/Volumes/Data/data/db
+
+
+
+
+**Close Mongo DB server**
+$sudo pkill -f mongod (force quit)
+Or
+Just close the terminal
+
+
+
+
+**Run Mongo Shell**
+$mongo
+
+
+**mongo shell**
+$show dbs
+$use (DB_name)
+$show collections
+
+$db.(collection_name).find()
+$db.(collection_name).insertOne()
+$db.(collection_name).insertMany(Array)
+
+$db.dropDatabase()

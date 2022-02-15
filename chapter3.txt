@@ -1,0 +1,25 @@
+**VScode**
+- How to install VScode into terminal: 	(https://code.visualstudio.com/docs/setup/mac)
+- Command + shift + p 			(Command Palette)
+
+**Terminal command**
+$echo message > a.txt 			(write message into a.txt file)
+$echo message >> a.txt			(add messages into a.txt file)
+
+This is added line!
+
+Arduino - p5.js
+- Pins for PWM are numbers with '~' sign. (Using for analog output as well)
+- contrain() function
+- map() function
+
+
+PWM/ EEPROM/ BOUNCING PROBLEM/ DELAY/ POTENTIOMETER
+
+**find the name of your serialpor**
+$ls /dev/{tty,cu}.*
+Or
+$ls /dev/cu.*
+
+
+---

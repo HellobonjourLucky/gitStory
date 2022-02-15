@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>install mongoDB</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <main>
+      <p>
+      <a href="https://www.mongodb.com/download-center/community/releases/archive">mongodb-macos-x86_64-4.2.7</a><br />
+      링크에서 파일 다운 받기
+      </p>
+
+      <p>
+        sudo mv /Users/hyosun/Downloads/mongodb-macos-x86_64-4.2.7  /usr/local/mongodb
+      </p>
+
+      <p>
+        cd ~ <br />
+        touch .bash_profile <br />
+        ls -a <br />
+        vim .bash_profile<br />
+        i <br />
+        export PATH=$PATH:/usr/local/mongodb/bin <br />
+        <em>esc 누르기(vim 빠져나오기)</em><br />
+        :wq!<br / />
+      </p>
+
+      <p>
+        sudo mkdir -p /System/Volumes/Data/data/db <br />
+        sudo chown -R hyosun /System/Volumes/Data/data/db<br / />
+      </p>
+
+      <p>
+        <strong>HOMEBREW Install!**</strong> <br />
+        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+      </p>
+
+      <p>
+        brew tap mongodb/brew<br />
+        brew install mongodb-community<br />
+        brew services run mongodb-community<br />
+      </p>
+
+      <p>
+        <strong>homebrew.mxcl.mongodb-community.plist exited with 5라는 error문이 뜬다면, homebrew가 이미 작동하고 있는것이므로...</strong><br /><br />
+        brew services restart mongodb-community<br />
+      </p>
+
+      <p>
+        brew services list<br />
+        mongo --version<br / />
+      </p>
+    </main>
+  </body>
+</html>

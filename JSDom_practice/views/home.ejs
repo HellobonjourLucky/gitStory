@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+
+    
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Grid System</title>
+  </head>
+  <body>
+    <!-- data from Arduino -->
+    <!-- <input type="hidden" class="arduino_value"> -->
+
+    <!-- Grid System -->
+    <div class="hamburger-icon" id="icon">
+      <div class="icon-1" id="a"></div>
+      <div class="icon-2" id="b"></div>
+      <div class="icon-3" id="c"></div>
+      <div class="clear"></div>
+    </div>
+    <nav id="nav">
+      <div id="sample"></div> 
+      <div class="navContainer">
+        <ul class="navList">
+        </ul>
+        <!-- <input class="navRangeBar" min="0" max="12" value="0" type="range" orient="vertical"/> -->
+        <div class="navRangeText">
+          <!-- <p>Complex</p> -->
+          <p class="navRangeTextValue"></p>
+          <!-- <p>Simple</p> -->
+        </div>
+
+        <div class="bg_check">
+          <input type="checkbox" id="bg_checked" class="">
+          <label for="">Hide Background</label>
+        </div>
+
+        <button class="btn gene_btn" type="button" name="button">Generate</button>
+        <button class="btn stop_btn" type="button" name="button">Stop</button>
+
+      </div>
+    </nav>
+
+    <div class="container">
+      <!-- all the small lectangles -->
+      <div class="small_grid"></div>
+
+      <img src="imgs/system_text.png" class="text_img">
+      <img src="imgs/grid_2000x3000.png" class="bg_grid">
+    </div>
+
+    
+    <script src="/js/dom.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      var socket = io();
+      socket.on('data', function(data) {
+        document.querySelector(".navRangeTextValue").textContent = parseInt(data[1]);
+        if(parseInt(data[0]) == 270){
+          myColorVal = 270;
+        }else{
+          myColorVal = 0;
+        }
+        // console.log(myColorVal);
+        localStorage.setItem('blocks', parseInt(data[1]));
+      });
+   </script>
+   
+  </body>
+</html>
