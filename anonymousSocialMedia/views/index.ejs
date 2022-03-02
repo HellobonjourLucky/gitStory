@@ -1,0 +1,22 @@
+<%- include('header'); -%>
+
+<!-- title -->
+<div class="textBox" id="heading">
+  <h1> during <%= Dday %> days and after</h1>
+</div>
+
+<!-- text -->
+<div class ="textBox">
+  <div class="item">
+    <%  for(i = 0; i < newTexts.length; i++){ %>
+      <p><%= newTexts[i] %></p>
+    <% } %>
+  </div>
+
+  <form action="/" method="post">
+      <input type="text" name="newText">
+      <button type="submit" name="button">Share</button>
+  </form>
+</div>
+
+<%- include('footer'); -%>
