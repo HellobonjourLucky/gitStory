@@ -15,18 +15,24 @@ h1 {
 .item {
   min-height: 70px;
   align-items: center;
+  border: 1px solid red;
 }
 
-.item:last-child {
-  border-bottom: 0;
+.itemDate{
+  font-size: 0.7rem;
 }
+
+
+/* .item:last-child {
+  border-bottom: 0;
+} */
 
 p {
   margin: 0;
-  padding: 20px;
+  padding: 8px;
   font-size: 20px;
   font-weight: 200;
-  color: #fff;
+  color: #000;
 }
 
 button {

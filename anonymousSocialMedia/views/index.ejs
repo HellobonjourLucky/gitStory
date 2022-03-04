@@ -7,14 +7,20 @@
 
 <!-- text -->
 <div class ="textBox">
-  <div class="item">
-    <%  for(i = 0; i < newTexts.length; i++){ %>
-      <p><%= newTexts[i] %></p>
-    <% } %>
-  </div>
+  <% postCollection.forEach(post => { %>
+    <div class="item">
+      <p class="itemContent">
+        <%= post.content.substring(0,200) + " ..." %>
+        <a href="/posts/<%= post.date %>">Read More</a>
+      </p>
+      <p class="itemDate"><%= post.date %></p>
+    </div>
+  <% }) %>
+
 
   <form action="/" method="post">
-      <input type="text" name="newText">
+      <!-- <input type="text" name="newText"> -->
+      <textarea name="postBody" rows="5" cols="30"></textarea>
       <button type="submit" name="button">Share</button>
   </form>
 </div>
