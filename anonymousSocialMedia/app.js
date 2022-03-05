@@ -1,13 +1,15 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const _ = require('lodash');
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost27017/postsDB');
 
 const app = express();
 const posts = [];
 
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended:true}));
-app.use(express.static('public'));
+app.use(express.static(__dirname + '/public'));
 
 const covid = new Date(2019, 12, 31);
 const today = new Date();
@@ -25,21 +27,21 @@ app.get('/', function(req, res){
 app.get('/posts/:postDate', function(req, res){
     const requiredDate = _.lowerCase(req.params.postDate);
     posts.forEach(post => {
-        const storedDate = _.lowerCase(post.date);
+        const storedDate = _.lowerCase(post.id);
         console.log("sotred date is..." + storedDate);
         if(storedDate == requiredDate){
             console.log('Match!');
             return res.render('post', {post:post});
-        }else{
-            console.log("not a match!")
         }
     })
 })
 
+
 app.post('/', function(req, res){
     const post = {
         date : today.toDateString(),
-        content : req.body.postBody
+        content : req.body.postBody,
+        id: Math.random(0,1)
       }
     posts.push(post);
     res.redirect('/');

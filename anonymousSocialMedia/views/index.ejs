@@ -7,11 +7,17 @@
 
 <!-- text -->
 <div class ="textBox">
-  <% postCollection.forEach(post => { %>
+  <% postCollection.forEach((post, index) => { %>
     <div class="item">
       <p class="itemContent">
-        <%= post.content.substring(0,200) + " ..." %>
-        <a href="/posts/<%= post.date %>">Read More</a>
+
+        <% if(post.content.length > 100){ %>
+          <%= post.content.substring(0,200) + " ..." %>
+          <a href="/posts/<%= post.id %>">Read More</a>
+          <% console.log(index, post.id)%> 
+        <% }else{ %>
+          <%= post.content%>
+        <% } %>
       </p>
       <p class="itemDate"><%= post.date %></p>
     </div>
@@ -19,7 +25,6 @@
 
 
   <form action="/" method="post">
-      <!-- <input type="text" name="newText"> -->
       <textarea name="postBody" rows="5" cols="30"></textarea>
       <button type="submit" name="button">Share</button>
   </form>
