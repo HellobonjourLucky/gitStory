@@ -15,7 +15,7 @@ const today = new Date();
 
 //MongoDB connect
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/postsDB');
+mongoose.connect('mongodb+srv://admin-lucky:loveuthanku@cluster0.jedte.mongodb.net/postsDB');
 
 const postSchema = {
     content: String,
