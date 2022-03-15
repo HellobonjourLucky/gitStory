@@ -1,0 +1,22 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="gardenStyle.css">
+    <title>Into the garden</title>
+</head>
+<body>
+    <video autoplay muted loop id="myVideo">
+        <source src="assets/demo.mov" type="video/mp4">
+    </video>
+
+    <div class ="textBox">
+        <form class="textSend" action="/" method="post">
+            <textarea class="shareText" name="postBody" rows="2" cols="50" placeholder="Quesion placeholder"></textarea>
+            <button class="shareBtn" type="submit" name="button">Share</button>
+        </form>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
