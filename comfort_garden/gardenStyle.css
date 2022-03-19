@@ -2,13 +2,40 @@
     margin: 0;
     padding: 0;
 }
+body{
+    width: 100%;
+    height: 100%;
+    /* background-color: red; */
+    overflow: hidden;
+    overflow-y: hidden;
+}
+.container{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding:0;
+    /* background-color: yellow; */
+}
 
+img{
+    /* border: 1px solid blue; */
+    width: 100vw;
+    height: 100vh;
+    /* z-index: -1; */
+}
 #myVideo{
-    position: fixed;
+    /* position: fixed;
     left: 0;
     bottom: 0;
-    width: 100%;
+    height: 100vh; */
+    margin:0;
+    padding:0;
+    object-fit: fill;
+    /* background-size: cover; */
+    overflow: hidden;
     z-index: -1;
+    height: 100vh;
+    width: 100vw;
 }
 .textBox{
     width: 1000px;
@@ -16,6 +43,7 @@
     bottom: 20px; 
     left: 50%; 
     transform: translate(-45%, 0);
+    z-index: 1;
 }
 
 .shareText{
@@ -57,3 +85,81 @@ textarea:focus{
     display:inline-block;
     vertical-align: middle;
 }
+
+
+
+
+
+
+
+
+  /* slide CSS */
+.slides {
+    /* We set the scroll snapping */
+    scroll-snap-type: x mandatory;
+    /* Necessary for mobile scrolling */
+    -webkit-overflow-scrolling: touch;
+    /* For layout purposes */
+    display: flex;
+    /* To allow horizontal scrolling */
+    overflow-x: scroll;
+  }
+
+  section {
+    /* For styling purposes */
+    height: 100vh;
+    min-width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    object-fit: fill;
+    /* Set where the snapping should happen */
+    scroll-snap-align: start;
+  }
+  
+  /* Styling for the sections */
+  section h2 {
+    font-family: system-ui, sans-serif;
+    font-size: 2rem;
+    color: #1a1a1a;
+    font-weight: 100;
+    z-index: 1;
+    display: block;
+  }
+  
+  section h3 {
+    font-family: system-ui, sans-serif;
+    font-size: 2rem;
+    color: #ffffff;
+    font-weight: 100;
+    z-index: 1;
+  }
+
+  section p{
+    font-family: system-ui, sans-serif;
+    font-size: 1rem;
+    color: #000;
+    font-weight: 100;
+    display:block;
+    width: 400px;
+  }
+
+  
+  .section-1 {
+    background-image: url('https://images.unsplash.com/photo-1524260855046-f743b3cdad07?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1401&q=80')
+  }
+  
+  /* .section-2 {
+    background-image: url('https://images.unsplash.com/34/BA1yLjNnQCI1yisIZGEi_2013-07-16_1922_IMG_9873.jpg?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1351&q=80')
+  } */
+  
+  /* .section-3 {
+    background-image: url('https://images.unsplash.com/photo-1500964757637-c85e8a162699?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1378&q=80')
+  }
+  
+  .section-4 {
+    background-image: url('https://images.unsplash.com/photo-1501791330673-603715379ded?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80')
+  } */

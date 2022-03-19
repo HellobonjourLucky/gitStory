@@ -21,6 +21,9 @@ authentification_level_06/node_modules/
 authentification_level_07/node_modules/
 anonymousSocialMedia/node_modules/
 
+comfort_garden_ejs/node_modules/
+comfort_garden_ejs copy/node_modules/
+
 .env
 authentification_level_01/.env
 authentification_level_01/.env.development.local

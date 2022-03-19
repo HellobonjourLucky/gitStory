@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,17 +8,21 @@
     <title>Into the garden</title>
 </head>
 <body>
-    <video autoplay muted loop id="myVideo">
-        <source src="assets/demo.mov" type="video/mp4">
-    </video>
+    <div class="container">
+        <video autoplay muted loop id="myVideo">
+            <!-- <source src="assets/demo.mp4" type="video/mp4"> -->
+            <source src="assets/demo_2.mp4" type="video/mp4">
+        </video>
+        <!-- <img src="assets/garden_2.png" alt="" class="bg"> -->
 
-    <div class="gardenBox"></div>
+        <div class="gardenBox"></div>
 
-    <div class ="textBox">
-        <form class="textSend" action="/" method="post">
-            <textarea class="shareText" name="postBody" rows="2" cols="50" placeholder="Quesion placeholder"></textarea>
-            <button class="shareBtn" type="submit" name="button">Share</button>
-        </form>
+        <div class ="textBox">
+            <form class="textSend" action="/" method="post">
+                <textarea class="shareText" name="postBody" rows="2" cols="50" placeholder="Quesion placeholder"></textarea>
+                <button class="shareBtn" type="submit" name="button">Share</button>
+            </form>
+        </div>
     </div>
     <script src="app.js"></script>
 </body>

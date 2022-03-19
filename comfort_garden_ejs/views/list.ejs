@@ -1,0 +1,22 @@
+<%- include('header'); -%>
+    <div class="container">
+        <h1><%= gardenTitle %></h1>
+
+        <div class="userTextBox">
+            <% for(i=0; i<userTexts.length; i++){ %>
+                <p><%= userTexts[i] %></p>
+            <%} %>
+        </div>
+
+        <div class ="textBox">
+            <form class="textSend" action="/" method="post">
+                <textarea class="shareText" name="newText" rows="2" cols="50" placeholder="Quesion placeholder"></textarea>
+                <button class="shareBtn" type="submit" name="button" value=<%= gardenTitle %>>Share</button>
+            </form>
+        </div>
+    </div>
+
+    <video autoplay muted loop id="myVideo">
+        <source src="/assets/garden01.mp4" type="video/mp4">
+    </video>
+<%- include('footer'); -%>

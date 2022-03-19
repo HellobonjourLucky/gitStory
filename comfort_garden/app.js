@@ -6,7 +6,7 @@ let imgHtml = `
 <img src="assets/elements/04.png">
 `
 
-// console.log(textSEnd);
-textSend.addEventListener('submit', function(){
+textSend.addEventListener('submit', function(e){
+    e.preventDefault();
     gardenBox.innerHTML += imgHtml;
 })
